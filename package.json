@@ -1,30 +1,59 @@
 {
-  "name": "nestjs-app-config-ts",
+  "name": "@app-config-ts/nestjs",
   "version": "0.0.0-development",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.build.json",
+    "prebuild": "rimraf dist",
+    "clean": "rimraf dist",
+    "example": "rimraf dist && tsc && LOG_LEVEL=debug node dist/example/main",
+    "prepublishOnly": "npm run clean && npm run build",
+    "postversion": "cp -r dist/package.json .."
   },
   "keywords": [
     "nestjs",
+    "nest.js",
     "app-config-ts",
     "configuration",
     "config"
   ],
+  "main": "index.js",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
+  "files": [
+    "*.{js,d.ts}"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
   "author": "JBW",
   "license": "MIT",
   "devDependencies": {
-    "@app-config-ts/core": "^1.0.6",
-    "@app-config-ts/json": "^1.0.5",
+    "@app-config-ts/core": "^1.0.7",
+    "@app-config-ts/json": "^1.0.6",
+    "@nestjs/cli": "^9.1.4",
     "@nestjs/common": "^9.1.4",
     "@nestjs/core": "^9.1.4",
+    "@nestjs/platform-express": "^9.1.4",
+    "@nestjs/schematics": "^9.0.3",
+    "@types/node": "^18.8.3",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.7"
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.5.7",
+    "ts-loader": "^9.4.1",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.0 || ^9.0.0",
     "@app-config-ts/core": "^1.0.0",
-    "@app-config-ts/json": "^1.0.0"
-  }
+    "@app-config-ts/json": "^1.0.0",
+    "@nestjs/core": "^9.0.0"
+  },
+  "rootDir": "src"
 }
