@@ -2,13 +2,16 @@
   "name": "@app-config-ts/nestjs",
   "version": "0.0.0-development",
   "description": "",
+  "author": "Jason Watson <hi@jbw.codes>",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prebuild": "rimraf dist",
     "clean": "rimraf dist",
+    "lint": "eslint --ext .js,.ts .",
+    "lint:fix": "npm run lint --fix",
     "example": "rimraf dist && tsc && LOG_LEVEL=debug node dist/example/main",
     "prepublishOnly": "npm run clean && npm run build",
-    "postversion": "cp -r dist/package.json .."
+    "postversion": "cp -r package.json .."
   },
   "keywords": [
     "nestjs",
@@ -31,7 +34,6 @@
   "engines": {
     "node": ">=14"
   },
-  "author": "JBW",
   "license": "MIT",
   "devDependencies": {
     "@app-config-ts/core": "^1.0.7",
@@ -48,7 +50,18 @@
     "ts-loader": "^9.4.1",
     "ts-node": "^10.9.1",
     "tsup": "^6.2.3",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.2",
+    "@semantic-release/npm": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "semantic-release": "^19.0.5"
   },
   "peerDependencies": {
     "@app-config-ts/core": "^1.0.0",
