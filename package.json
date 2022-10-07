@@ -23,7 +23,7 @@
     "configuration",
     "config"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "typesVersions": {
     "*": {
       "*": [
@@ -32,7 +32,8 @@
     }
   },
   "files": [
-    "*.{js,d.ts}"
+    "dist",
+    "README.md"
   ],
   "engines": {
     "node": ">=14"
