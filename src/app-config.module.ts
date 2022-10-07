@@ -1,7 +1,7 @@
-import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
-import { DynamicModule, Global, Module } from "@nestjs/common";
-import { AppConfigModuleOptions } from "./app-config-options";
-import { createAppConfigProvider } from "./app-config-providers";
+import { ConfigurationRoot } from '@app-config-ts/core/configuration-root';
+import { DynamicModule, Global, Module } from '@nestjs/common';
+import { AppConfigModuleOptions } from './app-config-options';
+import { createAppConfigProvider } from './app-config-providers';
 
 @Global()
 @Module({})

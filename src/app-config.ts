@@ -1,7 +1,7 @@
-import { ConfigurationBuilder } from "@app-config-ts/core/configuration-builder";
-import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
-import { JsonConfigurationSource } from "@app-config-ts/json";
-import { AppConfigModuleOptions } from "./app-config-options";
+import { ConfigurationBuilder } from '@app-config-ts/core/configuration-builder';
+import { ConfigurationRoot } from '@app-config-ts/core/configuration-root';
+import { JsonConfigurationSource } from '@app-config-ts/json';
+import { AppConfigModuleOptions } from './app-config-options';
 
 export class AppConfig {
   static init(options: AppConfigModuleOptions): ConfigurationRoot {

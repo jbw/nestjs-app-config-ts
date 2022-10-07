@@ -1,1 +1,1 @@
-export { AppConfigModule } from "./app-config.module";
+export { AppConfigModule } from './app-config.module';

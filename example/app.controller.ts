@@ -1,6 +1,5 @@
-import { Controller, Get, Inject } from "@nestjs/common";
-import { AppConfig } from "../src/app-config";
-import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
+import { Controller, Get } from '@nestjs/common';
+import { ConfigurationRoot } from '@app-config-ts/core/configuration-root';
 
 @Controller()
 export class AppController {
@@ -12,6 +11,6 @@ export class AppController {
 
   @Get()
   getName(): string | null {
-    return this.config.get("name");
+    return this.config.get('name');
   }
 }
