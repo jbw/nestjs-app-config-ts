@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jbw/nestjs-app-config-ts/compare/v1.0.0...v1.0.1) (2022-10-07)
+
+
+### Bug Fixes
+
+* **npm:** fix package ([24beddb](https://github.com/jbw/nestjs-app-config-ts/commit/24beddbcc9020d68232269904a3b2b82e945238f))
+
 # 1.0.0 (2022-10-07)
 
 
