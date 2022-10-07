@@ -1,7 +1,7 @@
 {
   "name": "@app-config-ts/nestjs",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "NestJS module for @app-config",
   "author": "Jason Watson <hi@jbw.codes>",
   "publishConfig": {
     "access": "public"
@@ -24,13 +24,6 @@
     "config"
   ],
   "main": "dist/index.js",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "dist/*"
-      ]
-    }
-  },
   "files": [
     "dist",
     "README.md"
