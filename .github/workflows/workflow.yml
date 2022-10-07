@@ -39,11 +39,11 @@ jobs:
         with:
           node-version: 18.7
           cache: 'npm'
-
       - name: 🚀 Release
         env:
           SEMANTIC_RELEASE_PACKAGE: nestjs-app-config-ts
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: |
+          npm ci
           npx semantic-release
