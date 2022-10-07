@@ -3,6 +3,9 @@
   "version": "0.0.0-development",
   "description": "",
   "author": "Jason Watson <hi@jbw.codes>",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prebuild": "rimraf dist",
