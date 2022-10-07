@@ -1,48 +1,42 @@
 import { ConfigurationBuilder } from "@app-config-ts/core/configuration-builder";
-import { IConfigurationRoot } from "@app-config-ts/core/configuration-root.interface";
+import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
 import { JsonConfigurationSource } from "@app-config-ts/json";
-import {
-  DynamicModule,
-  Global,
-  Injectable,
-  Module,
-  Provider,
-} from "@nestjs/common";
+import { DynamicModule, Global, Module, Provider } from "@nestjs/common";
 
 export interface AppConfigModuleOptions {
-  basePath: string;
+  baseDir: string;
   configFilename: string;
 }
 
-@Injectable()
 export class AppConfig {
-  public config: IConfigurationRoot;
-
-  constructor(options: AppConfigModuleOptions) {
-    console.warn(options);
-    this.config = new ConfigurationBuilder()
-      .setBasePath(options.basePath)
+  static init(options: AppConfigModuleOptions): ConfigurationRoot {
+    return new ConfigurationBuilder()
+      .setBasePath(options.baseDir)
       .addEnvironmentVariables()
       .add(new JsonConfigurationSource(options.configFilename))
       .build();
   }
 }
 
+export function createAppConfigProvider(
+  options: AppConfigModuleOptions
+): Provider {
+  return {
+    provide: ConfigurationRoot,
+    useFactory: () => {
+      return AppConfig.init(options);
+    },
+  };
+}
+
 @Global()
 @Module({})
 export class AppConfigModule {
   static forRoot(options: AppConfigModuleOptions): DynamicModule {
-    const configProvider: Provider = {
-      provide: AppConfig,
-      useFactory: () => {
-        return new AppConfig(options);
-      },
-    };
-
     return {
       module: AppConfigModule,
-      providers: [configProvider],
-      exports: [configProvider],
+      providers: [createAppConfigProvider(options)],
+      exports: [ConfigurationRoot],
     };
   }
 }

@@ -5,7 +5,7 @@ import { AppConfigModule } from "../src";
 @Module({
   imports: [
     AppConfigModule.forRoot({
-      basePath: "./example",
+      baseDir: "./example",
       configFilename: "appconfig.json",
     }),
   ],

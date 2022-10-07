@@ -1,16 +1,13 @@
 import { Controller, Get, Inject } from "@nestjs/common";
 import { AppConfig } from "../src/app-config-ts.module";
-import { IConfigurationRoot } from "@app-config-ts/core/configuration-root.interface";
+import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
 
 @Controller()
 export class AppController {
-  config: IConfigurationRoot;
+  config: ConfigurationRoot;
 
-  constructor(
-    @Inject(AppConfig)
-    appConfig: AppConfig
-  ) {
-    this.config = appConfig.config;
+  constructor(config: ConfigurationRoot) {
+    this.config = config;
   }
 
   @Get()
