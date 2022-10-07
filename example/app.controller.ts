@@ -1,5 +1,5 @@
 import { Controller, Get, Inject } from "@nestjs/common";
-import { AppConfig } from "../src/app-config-ts.module";
+import { AppConfig } from "../src/app-config";
 import { ConfigurationRoot } from "@app-config-ts/core/configuration-root";
 
 @Controller()
