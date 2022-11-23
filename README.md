@@ -1,5 +1,7 @@
 # nestjs-app-config-ts
 
+See [app-config-ts](https://github.com/jbw/app-config-ts)
+
 ## Getting Started
 
 ```sh
